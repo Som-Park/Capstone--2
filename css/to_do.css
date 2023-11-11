@@ -1,0 +1,321 @@
+/* Add styling for the progress container and bar */
+.progress-container {
+    width: 50%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0;
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Style for the percentage text */
+.progress-percentage {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    background: linear-gradient(135deg, #E97551,#D2B48C);
+    padding: 10px;
+}
+
+.checklist_icon{
+    width: 50px;
+    margin-left: 10px ;
+}
+
+.todo-app{
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px ;
+
+}
+
+.todo-app h2{
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding:  10px;
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+
+}
+
+ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(../images/uncheck.png) ;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    background-image: url(../images/checked.png);
+}
+
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width:  40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover{
+    background: #edeef0;
+}
+
+header {  
+    width: 100%; 
+    position: fixed;
+    background: linear-gradient(135deg, #E97551,#D2B48C);
+
+    z-index: 100;
+}
+
+.nav { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo { 
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--third-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.logo::after { 
+    content: '.'; 
+    position: absolute;
+    color: var(--second-color);
+}
+
+.menu { 
+    display: flex;
+    align-items: center;
+    transition: all .4s;
+}
+
+.menu li a { 
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--text-color);
+    position: relative;
+    transition: .3s;
+} 
+
+.menu li a.active, 
+.menu li a:hover { 
+    color: var(--second-color);
+}
+
+.menu li a::before { 
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--second-color);
+    border-radius: 50px;
+    transform: scale(0);
+    transition: .3s;
+}
+
+.menu li a.active::before,
+.menu li a:hover::before{ 
+    transform: scale(1);
+}
+
+.button { 
+    background-color: transparent;
+    border: none; 
+    display: none;
+}
+
+.button .line { 
+    transition: y 300ms ease in 300ms, rorate 300ms ease-in, opacity 0ms 300ms;
+    transform-origin: center;
+}
+
+.button[aria-expanded="true"] .line { 
+    transition: y 300ms ease-in, rotate 300ms ease-in 300ms, opacitu 0ms 300ms; 
+}
+
+.button[aria-expanded="true"] :is(top, bottom) { 
+    y: 45; 
+}
+
+.button[aria-expanded="true"] .top { 
+    rotate: 45deg; 
+} 
+
+.button[aria-expanded="true"] .middle { 
+    opacity: 0; 
+} 
+
+.button[aria-expanded="true"] .bottom { 
+    rotate: -45deg; 
+} 
+
+@media screen and (max-width: 768px) { 
+    .menu { 
+        position:absolute;
+        top: 93px; 
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+        height: 0;
+        width: 100vw !important;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 50px;
+        padding: 0;
+        margin: 0; 
+        visibility: hidden;
+        opacity: 0;
+    }
+    .menu.active {
+        
+        position:absolute;
+        top: 93px; 
+        left: 0;
+        background-color: rgba(0, 0, 0, .7);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 50px;
+        visibility: visible;
+        opacity: 1;
+    } 
+
+    .menu.active a {
+        color: #333;
+        font-size: 24px;
+    }
+
+    .button { 
+        display: initial;
+    }
+}
+
+.home { 
+    background: none ;
+    background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+}
+
+.home_content { 
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.home_content h1 { 
+    font-size: 45px;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.2;
+    white-space: nowrap;
+} 
+
+.home_content h1 span { 
+    font-weight: 600;
+}
+
+.home .content p { 
+    font-size: 14px;
+    margin: 25px 0 40px; 
+    color: var(--paragraph-color);
+    max-width: 380px; 
+}
+
+.home .content .btn { 
+    display: inline;
+}
